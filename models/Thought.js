@@ -1,5 +1,5 @@
 const { Schema, model, Types } = require('mongoose');
-const moment = require(moment);
+const dateFormat = require('../utils/dateFormat');
 
 const ThoughtSchema = new Schema({
     thoughtText: {
@@ -59,7 +59,7 @@ const ReactionSchema = new Schema({
 
     });
 
-
+// create virtual called reactionCount that retrieves length of Thought's reactions array
 // get total count of reactions
 ThoughtSchema.virtual('reactionCount').get(function () {
     // reduce() takes 2 parameters (accumulator and currentValue).  Returns revised total for next iteration thru the array
