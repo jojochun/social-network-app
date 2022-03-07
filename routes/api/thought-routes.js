@@ -1,18 +1,31 @@
 const router = require('express').Router();
-const { addthought, removethought, addReply, removeReply } = require('../../controllers/thought-controller');
+const { addThought, getAllThoughts, getThoughtById, updateThought,
+    deleteThought, addReaction, removeReaction } = require('../../controllers/thought-controller');
 
-// /api/thoughts/<thoughtId>   to add thought to a thought
-router.route('/:thoughtId')
-    .post(addthought);
 
-// /api/thoughts/<thoughtId>/<thoughtId>  to remove a thought need two parameters 
-router.route('/:thoughtId/:thoughtId')
-    .put(addReply)
-    .delete(removethought);
+// getAllThoughts
+router.route('/')
+    .get(getAllThoughts);
 
-// /api/thoughts/<thoughtId>/<thoughtId>/<replyId>
-router.route('/:thoughtId/:thoughtId/:replyId')
-    .delete(removeReply);
+// ThoughtById
+router.route('/:id')
+    .get(getThoughtById)
+    .put(updateThought)
+    .delete(deleteThought);
+
+
+// create Thought with association to userId 
+router.route('/:userId')
+    .post(addThought);
+
+
+// add reaction with association to thoughtId
+router.route('/:thoughtId/reactions')
+    .post(addReaction);
+
+// remove reaction
+router.route('/thoughtId/reactionId')
+    .delete(removeReaction);
 
 
 module.exports = router;

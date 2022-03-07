@@ -90,7 +90,7 @@ const thoughtController = {
 
 
     // create reaction stored in a single thought's reaction field
-    addReactions({ params, body }, res) {
+    addReaction({ params, body }, res) {
         Thought.findOneAndUpdate(
             { _id: params.thoughtId },
             { $push: { reaction: body } },
