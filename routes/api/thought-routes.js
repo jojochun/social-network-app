@@ -1,17 +1,17 @@
 const router = require('express').Router();
-const { addComment, removeComment, addReply, removeReply } = require('../../controllers/comment-controller');
+const { addthought, removethought, addReply, removeReply } = require('../../controllers/thought-controller');
 
-// /api/comments/<thoughtId>   to add comment to a thought
+// /api/thoughts/<thoughtId>   to add thought to a thought
 router.route('/:thoughtId')
-    .post(addComment);
+    .post(addthought);
 
-// /api/comments/<thoughtId>/<commentId>  to remove a comment need two parameters 
-router.route('/:thoughtId/:commentId')
+// /api/thoughts/<thoughtId>/<thoughtId>  to remove a thought need two parameters 
+router.route('/:thoughtId/:thoughtId')
     .put(addReply)
-    .delete(removeComment);
+    .delete(removethought);
 
-// /api/comments/<thoughtId>/<commentId>/<replyId>
-router.route('/:thoughtId/:commentId/:replyId')
+// /api/thoughts/<thoughtId>/<thoughtId>/<replyId>
+router.route('/:thoughtId/:thoughtId/:replyId')
     .delete(removeReply);
 
 
