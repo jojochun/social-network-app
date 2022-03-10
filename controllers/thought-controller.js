@@ -1,4 +1,4 @@
-const res = require('express/lib/response');
+
 const { User, Thought } = require('../models');
 
 const thoughtController = {
@@ -60,12 +60,18 @@ const thoughtController = {
 
     updateThought({ params, body }, res) {
         Thought.findOneAndUpdate({ _id: params.id }, body, { new: true, runValidators: true })
+            .populate({
+                path: 'reactions',
+                select: '-__v'
+            })
+            .select('-__v')
+
             .then(dbthoughtData => {
                 if (!dbthoughtData) {
                     res.status(404).json({ message: 'No thought found with this id!' });
                     return;
                 }
-                res.json(dbthoughtData)
+                res.json(dbthoughtData);
             })
             .catch(err => {
                 console.log(err);
@@ -73,6 +79,7 @@ const thoughtController = {
             });
     },
 
+    // delete thought by id
     deleteThought({ params }, res) {
         Thought.findOneAndDelete({ _id: params.id })
             .then(dbthoughtData => {
@@ -80,7 +87,7 @@ const thoughtController = {
                     res.status(404).json({ message: 'No thought found with this id!' });
                     return;
                 }
-                res.json(dbthoughtData)
+                res.json(dbthoughtData);
             })
             .catch(err => {
                 console.log(err);
@@ -93,11 +100,11 @@ const thoughtController = {
     addReaction({ params, body }, res) {
         Thought.findOneAndUpdate(
             { _id: params.thoughtId },
-            { $push: { reaction: body } },
+            { $push: { reactions: body } },
             { new: true, runValidators: true }
         )
             .populate({
-                path: 'reaction',
+                path: 'reactions',
                 select: '-__v'
             })
             .select('-__v')
@@ -118,7 +125,7 @@ const thoughtController = {
     removeReaction({ params }, res) {
         Thought.findOneAndUpdate(
             { _id: params.thoughtId },
-            { $pull: { reaction: { reactionId: params } } },
+            { $pull: { reactions: { reactionId: params } } },
             { new: true }
         )
             .then(dbthoughtData => {
