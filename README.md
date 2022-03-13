@@ -25,6 +25,8 @@ npm start
 
 [Video Walkthrough of User Routes](https://drive.google.com/file/d/1Faj2AidCLj9cGzpLZuv-lFPHjyc5pIdD/view)
 
+[Video Walkthrought of Thought Routes](https://drive.google.com/file/d/1C6ed3kqYeVm3GdtQg32l2G0yVvDT4ajq/view)
+
 ## License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
