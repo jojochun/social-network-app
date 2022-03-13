@@ -27,6 +27,13 @@ npm start
 
 [Video Walkthrought of Thought Routes](https://drive.google.com/file/d/1C6ed3kqYeVm3GdtQg32l2G0yVvDT4ajq/view)
 
+## Built With
+
+- Express.js
+- Node.js
+- MongoDB
+- Mongoose ODM
+
 ## License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
