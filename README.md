@@ -23,7 +23,7 @@ npm start
 
 ## Video Walkthrough
 
-[Video Walkthrough of User Routes](chrome-extension://mmeijimgabbpbgpdklnllpncmdofkcpn/app.html#/files/1060f045-9c82-4665-y8ba-459154b2c14f)
+[Video Walkthrough of User Routes](https://drive.google.com/file/d/1Faj2AidCLj9cGzpLZuv-lFPHjyc5pIdD/view)
 
 ## License
 
