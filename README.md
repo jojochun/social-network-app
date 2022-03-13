@@ -23,6 +23,8 @@ npm start
 
 ## Video Walkthrough
 
+[Video Walkthrough of User Routes](chrome-extension://mmeijimgabbpbgpdklnllpncmdofkcpn/app.html#/files/1060f045-9c82-4665-y8ba-459154b2c14f)
+
 ## License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
